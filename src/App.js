@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <AppWrapper>
-      <h1>Google Clone</h1>
+      <h1 className='title'>Google Clone</h1>
       <SearchBar setSearchResults={setSearchResults} />
       <SearchResults results={searchResults} />
     </AppWrapper>
