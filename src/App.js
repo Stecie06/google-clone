@@ -1,26 +1,28 @@
-import React, { useState } from 'react';
-import SearchBar from './components/SearchBar';
-import SearchResults from './components/SearchResults';
-import styled from 'styled-components';
-import './App.css';
+import React from 'react';
+import GlobalStyle from './globalStyle';
 
-const AppWrapper = styled.div`
-  text-align: center;
-  background-color: #202124;
-  color: #fff;
-  height: 100vh;
-`;
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
 
-const App = () => {
-  const [searchResults, setSearchResults] = useState([]);
+// Pages
+import Home from './pages/home';
+import SearchPage from './pages/search';
 
+function App() {
   return (
-    <AppWrapper>
-      <h1 className='title'>Google Clone</h1>
-      <SearchBar setSearchResults={setSearchResults} />
-      <SearchResults results={searchResults} />
-    </AppWrapper>
+    <div className="App">
+      <Router>
+        <Routes>
+            <Route path='/' element={<Home/>} />
+            <Route path="/search" element={<SearchPage/>} />
+            <Route path="/images" element={<SearchPage/>} />
+            <Route path="/news" element={<SearchPage/>} />
+            <Route path="/videos" element={<SearchPage/>} />
+        </Routes>
+
+        <GlobalStyle/>
+      </Router>
+    </div>
   );
-};
+}
 
 export default App;
